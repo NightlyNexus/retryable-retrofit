@@ -28,6 +28,34 @@ Usage
 -----
 
 TODO
+```java
+RetryableCalls retryableCalls = new RetryableCalls();
+Retrofit retrofit = new Retrofit.Builder()
+    .addCallAdapterFactory(retryableCalls.getFactory())
+    ...
+    .build();
+
+// Listen for Android's connectivity changes.
+ConnectivityAutoRetryer autoRetryer = new ConnectivityAutoRetryer(retryableCalls, context);
+autoRetryer.register();
+
+class AndroidView {
+  RetryableCall<Void> call;
+  
+  void attach() {
+    call = retrofitService.get();
+    call.enqueue(new RetryableCallback<Void>() {
+      ...
+    });
+    // call will be retried automatically until canceled or completed.
+  }
+  
+  void detach() {
+    // Cancel the call and release it and its callback from the RetryableCalls instance if it has not be completed yet.
+    call.cancel();
+  }
+}
+```
 
 
 License
