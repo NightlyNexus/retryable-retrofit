@@ -22,8 +22,8 @@ public final class ConnectivityAutoRetryer {
         ConnectivityManager manager =
             (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = manager.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-            activeNetwork.isConnectedOrConnecting();
+        boolean isConnected = activeNetwork != null
+            && activeNetwork.isConnectedOrConnecting();
         if (isConnected) {
           retryableCalls.retryAllCalls();
         }
