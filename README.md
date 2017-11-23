@@ -51,7 +51,7 @@ class AndroidView {
   }
   
   void detach() {
-    // Cancel the call and release it and its callback from the RetryableCalls instance if it has not be completed yet.
+    // Cancel the call and release it and its callback from the RetryableCalls instance if it has not been completed yet.
     call.cancel();
   }
 }
