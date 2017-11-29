@@ -128,8 +128,7 @@ public final class RetryableCallsTest {
         .addCallAdapterFactory(retryableCalls.getFactory())
         .addConverterFactory(new Converter.Factory() {
           @Override public Converter<ResponseBody, ?> responseBodyConverter(Type type,
-              Annotation[] annotations,
-              Retrofit retrofit) {
+              Annotation[] annotations, Retrofit retrofit) {
             return new Converter<ResponseBody, Object>() {
               @Override public Object convert(ResponseBody value) throws IOException {
                 throw new RuntimeException("Broken!");
@@ -435,8 +434,7 @@ public final class RetryableCallsTest {
         .addCallAdapterFactory(retryableCalls.getFactory())
         .addConverterFactory(new Converter.Factory() {
           @Override public Converter<ResponseBody, ?> responseBodyConverter(Type type,
-              Annotation[] annotations,
-              Retrofit retrofit) {
+              Annotation[] annotations, Retrofit retrofit) {
             return new Converter<ResponseBody, Object>() {
               @Override public Object convert(ResponseBody value) throws IOException {
                 throw new RuntimeException("Broken!");
@@ -530,8 +528,7 @@ public final class RetryableCallsTest {
         .addCallAdapterFactory(retryableCalls.getFactory())
         .addConverterFactory(new Converter.Factory() {
           @Override public Converter<ResponseBody, ?> responseBodyConverter(Type type,
-              Annotation[] annotations,
-              Retrofit retrofit) {
+              Annotation[] annotations, Retrofit retrofit) {
             return new Converter<ResponseBody, Object>() {
               @Override public Object convert(ResponseBody value) throws IOException {
                 throw new RuntimeException("Broken!");
@@ -633,8 +630,7 @@ public final class RetryableCallsTest {
         .addCallAdapterFactory(retryableCalls.getFactory())
         .addConverterFactory(new Converter.Factory() {
           @Override public Converter<ResponseBody, ?> responseBodyConverter(Type type,
-              Annotation[] annotations,
-              Retrofit retrofit) {
+              Annotation[] annotations, Retrofit retrofit) {
             return new Converter<ResponseBody, Object>() {
               @Override public Object convert(ResponseBody value) throws IOException {
                 throw new RuntimeException("Broken!");
@@ -718,8 +714,7 @@ public final class RetryableCallsTest {
         .addCallAdapterFactory(retryableCalls.getFactory())
         .addConverterFactory(new Converter.Factory() {
           @Override public Converter<ResponseBody, ?> responseBodyConverter(Type type,
-              Annotation[] annotations,
-              Retrofit retrofit) {
+              Annotation[] annotations, Retrofit retrofit) {
             return new Converter<ResponseBody, Object>() {
               @Override public Object convert(ResponseBody value) throws IOException {
                 throw new RuntimeException("Broken!");
@@ -773,8 +768,8 @@ public final class RetryableCallsTest {
         .addConverterFactory(new ToStringConverterFactory())
         .build();
     Service service = retrofit.create(Service.class);
-    RetryableCall<String> d = service.getString();
-    assertThat(d.request()).isNotNull();
+    RetryableCall<String> call = service.getString();
+    assertThat(call.request()).isNotNull();
   }
 
   @Test public void retryableCallClone() throws InterruptedException {
