@@ -77,5 +77,5 @@ License
 
 
 
- [jar]: https://search.maven.org/remote_content?g=com.nightlynexus.retryable-retrofit&a=retryable&v=LATEST
+ [jar]: https://search.maven.org/classic/remote_content?g=com.nightlynexus.retryable-retrofit&a=retryable&v=LATEST
  [snap]: https://oss.sonatype.org/content/repositories/snapshots/
