@@ -1,7 +1,7 @@
 Retryable-Retrofit
 ====================
 
-TODO: A way to retry many failed Retrofit calls. Useful in combination with listening to connectivity changes on Android.
+Retry failed Retrofit calls. Useful in combination with listening to connectivity changes on Android.
 
 
 Download
